@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IceSocialNet.View.LoginPage"
+             Title="Login Page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Sign Up" Clicked="OnSignUpButtonClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand">
+            <Label Text="Username" />
+            <Entry x:Name="usernameEntry" Placeholder="username" />
+            <Label Text="Password" />
+            <Entry x:Name="passwordEntry" IsPassword="true" Placeholder="Password" />
+            <Button Text="Login" Clicked="OnLoginButtonClicked" />
+            <Label x:Name="messageLabel" />
+            <StackLayout HorizontalOptions="Center">
+                <Label x:Name="seperator" Text="Or login with" XAlign="Center"/>
+                <Button Image="facebook.png"  />
+                <Button Image="twitter.jpg"  />
+                <Button Image="linkedin.png"  />
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
