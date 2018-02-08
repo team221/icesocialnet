@@ -46,113 +46,89 @@ namespace IceSocialNet.View
 
         private void DrawActivities()
         {
-            List<Activity> lstActivities = new List<Activity>();
-            var act1 = new Activity
+            List<object> groups = new List<object>();
+            Group group = new Group()
             {
-                guid = 001,
-                Time_Created = "2 hours",
-                Description = "IoT group",
-                Owner = new Owner
+                Guid = 66,
+                Title = "IOT Group",
+                Time_Create = "8 minutes 13 seconds ago",
+                Description = "This group is open for IOT community to training and discuss about IoT technologies",
+                Access_Id = 2,
+                Members = 1,
+                Is_Member = false,
+                Permission_Public = true,
+                Content_Access_Mode = "unrestricted",
+                Icon = "group.png",
+                Tags = new string[] { "IoT", "IT", "Blockchain" },
+                Owner = new Owner()
                 {
-                    guid = 3,
-                    Name = "David",
-                    Username = "test1"
-                },
-                Like =  "like",
-                Like_Count = "5",
-                Comment_Count = "5"
+                    guid = 38,
+                    Name = "Ice Admin",
+                    Username = "admin",
+                    Avatar_Url = "http://localhost/elgg/_graphics/icons/user/defaultsmall.gif"
+                }
             };
-            var act2 = new Activity
+            Group group1 = new Group()
             {
-                guid = 001,
-                Time_Created = "5 hours",
-                Description = "Blockchain group",
-                Owner = new Owner
+                Guid = 66,
+                Title = "Robotics Group",
+                Time_Create = "8 minutes 13 seconds ago",
+                Description = "This group is open for Robotics community to training and discuss about IoT technologies",
+                Access_Id = 2,
+                Members = 1,
+                Is_Member = false,
+                Permission_Public = true,
+                Content_Access_Mode = "unrestricted",
+                Icon = "group.png",
+                Tags = new string[] { "Robotics", "IT", "RPA" },
+                Owner = new Owner()
                 {
-                    guid = 3,
-                    Name = "David",
-                    Username = "test1"
-                },
-                Like = "like",
-                Like_Count = "5",
-                Comment_Count = "5"
-            };
-            var act3 = new Activity
-            {
-                guid = 001,
-                Time_Created = "5 hours",
-                Description = "RPA group",
-                Owner = new Owner
-                {
-                    guid = 3,
-                    Name = "David",
-                    Username = "test1"
-                },
-                Like = "like",
-                Like_Count = "5",
-                Comment_Count = "5"
+                    guid = 38,
+                    Name = "Ice Admin",
+                    Username = "admin",
+                    Avatar_Url = "http://localhost/elgg/_graphics/icons/user/defaultsmall.gif"
+                }
             };
 
-            var act4 = new Activity
+            groups.Add(group);
+            groups.Add(group1);
+
+            Event even = new Event()
             {
-                guid = 001,
-                Time_Created = "2 hours",
-                Description = "Event about IOT market",
-                Owner = new Owner
+                Guid = 12,
+                Title = "IOT event",
+                Description = "Only for IoT event",
+                Icon = "event.png",
+                Time_Create = "8 minutes 13 seconds ago",
+                Lat = 12.02,
+                Lng = 12.02,
+                Owner = new Owner()
                 {
-                    guid = 3,
-                    Name = "David",
-                    Username = "test1"
-                },
-                Like = "like",
-                Like_Count = "5",
-                Comment_Count = "5"
-            };
-            var act5 = new Activity
-            {
-                guid = 001,
-                Time_Created = "5 hours",
-                Description = "Blockchain market",
-                Owner = new Owner
-                {
-                    guid = 3,
-                    Name = "David",
-                    Username = "test1"
-                },
-                Like = "like",
-                Like_Count = "5",
-                Comment_Count = "5"
-            };
-            var act6 = new Activity
-            {
-                guid = 001,
-                Time_Created = "5 hours",
-                Description = "RPA market",
-                Owner = new Owner
-                {
-                    guid = 3,
-                    Name = "David",
-                    Username = "test1"
-                },
-                Like = "like",
-                Like_Count = "5",
-                Comment_Count = "5"
+                    guid = 38,
+                    Name = "Ice Admin",
+                    Username = "admin",
+                    Avatar_Url = "http://localhost/elgg/_graphics/icons/user/defaultsmall.gif"
+                }
             };
 
-            lstActivities.Add(act1);
-            lstActivities.Add(act2);
-            lstActivities.Add(act3);
-            lstActivities.Add(act4);
-            lstActivities.Add(act5);
-            lstActivities.Add(act6);
-
-            DrawActivityUI(lstActivities);
+            groups.Add(even);
         }
 
-        public void DrawActivityUI(List<Activity> activites) {
+        public void DrawActivityUI(List<object> groups)
+        {
 
-            foreach (Activity act in activites)
+            foreach (object act in groups)
             {
+                Group group = null;
+                Event evt = null;
+                try
+                {
+                    group = (Group)act;
+                }
+                catch (Exception ex)
+                {
+                    evt = (Event)act;
+                }
                 var layout = new StackLayout();
                 layout.Orientation = StackOrientation.Vertical;
 
@@ -169,14 +145,14 @@ namespace IceSocialNet.View
                 StackLayout verticalWrapper2 = new StackLayout();
                 verticalWrapper2.Orientation = StackOrientation.Vertical;
 
-                
+
 
                 StackLayout horizontalWrapper1 = new StackLayout();
                 horizontalWrapper1.Orientation = StackOrientation.Horizontal;
 
                 Label lblName = new Label();
                 //lblName.SetBinding(Label.TextProperty, act.Owner.Name);
-                lblName.Text = act.Owner.Name;
+                lblName.Text = group != null?group.Owner.Name: evt.Owner.Name;
                 lblName.TextColor = Color.Black;
                 lblName.Font = Font.OfSize("SemiBold", 20);
 
@@ -191,7 +167,7 @@ namespace IceSocialNet.View
 
                 Label lblTime = new Label();
                 //lblTime.SetBinding(Label.TextProperty, act.Time_Created);
-                lblTime.Text = act.Time_Created;
+                lblTime.Text = group != null ? group.Time_Create: evt.Time_Create;
                 horizontalWrapper2.Children.Add(lblTime);
 
                 verticalWrapper2.Children.Add(horizontalWrapper1);
@@ -202,7 +178,7 @@ namespace IceSocialNet.View
 
                 Label lblDescription = new Label();
                 //lblDescription.SetBinding(Label.TextProperty, act.Description);
-                lblDescription.Text = act.Description;
+                lblDescription.Text = group != null ? group.Description: evt.Description;
                 lblDescription.Font = Font.OfSize("SemiBold", 20);
 
                 contentWrapper.Children.Add(lblDescription);

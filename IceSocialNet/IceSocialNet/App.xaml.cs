@@ -22,7 +22,8 @@ namespace IceSocialNet
             }
             else
             {
-                MainPage = new NavigationPage(new IceSocialNet.View.MainPage());
+                //MainPage = new NavigationPage(new IceSocialNet.View.MainPage());
+                MainPage = new NavigationPage(new IceSocialNet.View.User.InterestingPage());
             }            
         }
 

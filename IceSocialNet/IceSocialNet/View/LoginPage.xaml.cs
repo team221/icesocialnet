@@ -36,7 +36,7 @@ namespace IceSocialNet.View
             if (isValid)
             {
                 App.IsUserLoggedIn = true;
-                Navigation.InsertPageBefore(new MainPage(), this);
+                Navigation.InsertPageBefore(new User.InterestingPage(), this);
                 await Navigation.PopAsync();
             }
             else
