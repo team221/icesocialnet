@@ -14,8 +14,8 @@
             <Entry x:Name="passwordEntry" IsPassword="true" Placeholder="Password" />
             <Button Text="Login" Clicked="OnLoginButtonClicked" />
             <Label x:Name="messageLabel" />
-            <StackLayout HorizontalOptions="Center">
-                <Label x:Name="seperator" Text="Or login with" XAlign="Center"/>
+            <Label x:Name="seperator" Text="Or login with" XAlign="Center"/>
+            <StackLayout HorizontalOptions="Center" x:Name="groupButtons" Orientation="Horizontal">
                 <Button Image="facebook.png"  />
                 <Button Image="twitter.jpg"  />
                 <Button Image="linkedin.png"  />

@@ -13,6 +13,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Common\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\CustomCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RestClientAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Activity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Event.cs" />
@@ -21,18 +22,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\MessageBoard.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Owner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Result.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)View\LoginPageCS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\LoginToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Account.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\MainPageCS.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\SignUpPageCS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\User\InterestingPage.xaml.cs">
       <DependentUpon>InterestingPage.xaml</DependentUpon>
       <SubType>Code</SubType>

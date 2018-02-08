@@ -1,18 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IceSocialNet.View.User.InterestingPage">
+             x:Class="IceSocialNet.View.User.InterestingPage"
+             Title="Your Interesting ...">
     <ContentPage.Content>
-        <ScrollView>
-            <ListView x:Name="interstingView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding DisplayName}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <Button Text="Done" Clicked="OnDoneButtonClicked" />
+        <ScrollView x:Name="InterestingScrollView">
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

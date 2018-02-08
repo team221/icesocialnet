@@ -1,4 +1,6 @@
-﻿using IceSocialNet.Model;
+﻿using IceSocialNet.Common;
+using IceSocialNet.Model;
+using IceSocialNet.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,36 +29,66 @@ namespace IceSocialNet.View.User
             await Navigation.PopAsync();
         }
 
-            private void DrawInterestingPage()
+        ObservableCollection<ListViewModel> ListItems { get; set; } = new ObservableCollection<ListViewModel> {
+            new ListViewModel{Text = "IoT"},
+            new ListViewModel{Text = "Blockchain"},
+            new ListViewModel{Text = "Robotics"},
+            new ListViewModel{Text = "OCR (Optical Character Recognize)"},
+        };
+
+        ListView ListView { get; set; }
+
+        private void DrawInterestingPage()
         {
-            ObservableCollection<Interest> lstInterest = new ObservableCollection<Interest>();
 
-            Interest int1 = new Interest()
+            ListView = new ListView();
+            ListView.ItemsSource = ListItems;
+            ListView.ItemTemplate = new DataTemplate(typeof(CustomCell));
+            ListView.ItemTapped += MenuListView_ItemTapped;            
+
+
+            var ListViewLayout = new StackLayout() {
+                Orientation = StackOrientation.Vertical,
+                VerticalOptions = LayoutOptions.StartAndExpand
+            };
+            ListViewLayout.Padding = new Thickness(10, 20);
+            ListViewLayout.Children.Add(ListView);
+
+            Button doneButton = new Button
             {
-                Name = "IoT"
+                Text = "DONE",
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                
+            };
+            ListViewLayout.Children.Add(doneButton);
+
+            doneButton.Clicked += async (sender, args) =>
+            {
+                SaveSelection2Server();
+
+                Navigation.InsertPageBefore(new MainPage(), this);
+                await Navigation.PopAsync();
             };
 
-            Interest int2 = new Interest()
-            {
-                Name = "Blockchain"
-            };
+            InterestingScrollView.Content = ListViewLayout;
+        }
 
-            Interest int3 = new Interest()
-            {
-                Name = "Robotics"
-            };
+        private void SaveSelection2Server() {
+            //TODO Save data after selected to the database.
+        }
 
-            Interest int4 = new Interest()
-            {
-                Name = "Optical Character Recognize"
-            };
+        void MenuListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if ((sender as ListView).SelectedItem == null)
+                return;
+            (sender as ListView).SelectedItem = null;
 
-            lstInterest.Add(int1);
-            lstInterest.Add(int2);
-            lstInterest.Add(int3);
-            lstInterest.Add(int4);
-
-            interstingView.ItemsSource = lstInterest;
+            var item = e.Item as ListViewModel;
+            if (item.IsSelected)
+                item.IsSelected = false;
+            else
+                item.IsSelected = true;
         }
     }
 }

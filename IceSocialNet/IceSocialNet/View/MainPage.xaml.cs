@@ -112,6 +112,8 @@ namespace IceSocialNet.View
             };
 
             groups.Add(even);
+
+            DrawActivityUI(groups);
         }
 
         public void DrawActivityUI(List<object> groups)
@@ -140,7 +142,7 @@ namespace IceSocialNet.View
 
                 var avatar = new Image();
                 //avatar.SetBinding(Image.SourceProperty, act.Owner.Avatar_Url);
-                avatar.Source = ImageSource.FromResource("event.png");//.FromUri(new Uri(act.Owner.Avatar_Url));
+                avatar.Source = group != null ? ImageSource.FromFile("group.png") : ImageSource.FromFile("event.png");//.FromUri(new Uri(act.Owner.Avatar_Url));
 
                 StackLayout verticalWrapper2 = new StackLayout();
                 verticalWrapper2.Orientation = StackOrientation.Vertical;

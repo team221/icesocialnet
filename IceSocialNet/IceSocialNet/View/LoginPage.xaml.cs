@@ -17,7 +17,9 @@ namespace IceSocialNet.View
 		public LoginPage ()
 		{
 			InitializeComponent ();
-		}
+            
+
+        }
 
         async void OnSignUpButtonClicked(object sender, EventArgs e)
         {
