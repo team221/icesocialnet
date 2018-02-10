@@ -1,4 +1,5 @@
-﻿using IceSocialNet.Common;
+﻿using FacebookLogin.Views;
+using IceSocialNet.Common;
 using IceSocialNet.Model;
 using System;
 using System.Collections.Generic;
@@ -38,14 +39,20 @@ namespace IceSocialNet.View
             if (isValid)
             {
                 App.IsUserLoggedIn = true;
-                Navigation.InsertPageBefore(new User.InterestingPage(), this);
-                await Navigation.PopAsync();
+                //Navigation.InsertPageBefore(new User.InterestingPage(), this);
+                //await Navigation.PopAsync();
+                await Navigation.PushAsync(new User.InterestingPage());
             }
             else
             {
                 messageLabel.Text = "Login failed";
                 passwordEntry.Text = string.Empty;
             }
+        }
+
+        private async void LoginWithFacebook_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FacebookProfileCsPage());
         }
 
         bool AreCredentialsCorrect(Account account)

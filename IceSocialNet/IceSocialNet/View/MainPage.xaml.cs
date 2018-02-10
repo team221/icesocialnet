@@ -172,8 +172,22 @@ namespace IceSocialNet.View
                 lblTime.Text = group != null ? group.Time_Create: evt.Time_Create;
                 horizontalWrapper2.Children.Add(lblTime);
 
+                StackLayout horizontalWrapper3 = new StackLayout();
+                horizontalWrapper3.Orientation = StackOrientation.Horizontal;
+
+                Button doneButton = new Button
+                {
+                    Text = "DONE",
+                    HorizontalOptions = LayoutOptions.StartAndExpand,
+                    VerticalOptions = LayoutOptions.StartAndExpand,
+                    Image = "facebook_like.jpg",
+
+                };   
+                horizontalWrapper2.Children.Add(doneButton);
+
                 verticalWrapper2.Children.Add(horizontalWrapper1);
                 verticalWrapper2.Children.Add(horizontalWrapper2);
+                verticalWrapper2.Children.Add(horizontalWrapper3);
 
                 horizontalWrapper.Children.Add(avatar);
                 horizontalWrapper.Children.Add(verticalWrapper2);

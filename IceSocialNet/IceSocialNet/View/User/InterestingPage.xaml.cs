@@ -67,8 +67,9 @@ namespace IceSocialNet.View.User
             {
                 SaveSelection2Server();
 
-                Navigation.InsertPageBefore(new MainPage(), this);
-                await Navigation.PopAsync();
+                //Navigation.InsertPageBefore(new MainPage(), this);
+                //await Navigation.PopAsync();
+                await Navigation.PushAsync(new MainPage());
             };
 
             InterestingScrollView.Content = ListViewLayout;

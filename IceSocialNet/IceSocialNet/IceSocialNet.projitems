@@ -17,12 +17,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\RestClientAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Activity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Event.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\FacebookProfile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Group.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Interest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\MessageBoard.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Owner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Result.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\FacebookServices.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FacebookViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -33,6 +36,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\LoginToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Account.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\OAuth\FacebookProfileCsPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\User\InterestingPage.xaml.cs">
       <DependentUpon>InterestingPage.xaml</DependentUpon>
       <SubType>Code</SubType>
