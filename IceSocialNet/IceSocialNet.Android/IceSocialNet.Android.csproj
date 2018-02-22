@@ -154,7 +154,13 @@
     <AndroidResource Include="Resources\Drawable\ic_checkmark_unactive.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\facebook_like.jpg" />
+    <AndroidResource Include="Resources\Drawable\facebook_liked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\facebook_like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\btnChat.png" />
   </ItemGroup>
   <Import Project="..\IceSocialNet\IceSocialNet.projitems" Label="Shared" Condition="Exists('..\IceSocialNet\IceSocialNet.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

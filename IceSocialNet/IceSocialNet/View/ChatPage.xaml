@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IceSocialNet.View.ChatPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="ChattingView" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+            <ScrollView x:Name="InterestingScrollView" HorizontalOptions="FillAndExpand">
+                <Label Text="Welcome to Chatting page"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            </ScrollView>
+            <StackLayout x:Name="Chatting" Orientation="Horizontal">
+                <Entry x:Name="usernameEntry" Placeholder="Input message..."                    
+                   HorizontalOptions="StartAndExpand" />
+                <Button Text="SEND"
+                    TextColor="White"
+                    BackgroundColor="#01579B"
+                    Font="Bold"
+                    FontSize="26"
+                    HorizontalOptions="Start"/>
+            </StackLayout>
+        </StackLayout>
+        
+        
+    </ContentPage.Content>
+</ContentPage>

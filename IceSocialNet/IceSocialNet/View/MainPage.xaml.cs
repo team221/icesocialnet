@@ -137,8 +137,12 @@ namespace IceSocialNet.View
                 var horizontalWrapper = new StackLayout();
                 horizontalWrapper.Orientation = StackOrientation.Horizontal;
 
+                var buttonsWrapper = new StackLayout();
+                buttonsWrapper.Orientation = StackOrientation.Horizontal;
+
                 var contentWrapper = new StackLayout();
                 contentWrapper.Orientation = StackOrientation.Vertical;
+
 
                 var avatar = new Image();
                 //avatar.SetBinding(Image.SourceProperty, act.Owner.Avatar_Url);
@@ -174,20 +178,12 @@ namespace IceSocialNet.View
 
                 StackLayout horizontalWrapper3 = new StackLayout();
                 horizontalWrapper3.Orientation = StackOrientation.Horizontal;
-
-                Button doneButton = new Button
-                {
-                    Text = "DONE",
-                    HorizontalOptions = LayoutOptions.StartAndExpand,
-                    VerticalOptions = LayoutOptions.StartAndExpand,
-                    Image = "facebook_like.jpg",
-
-                };   
-                horizontalWrapper2.Children.Add(doneButton);
+                
+               // horizontalWrapper3.Children.Add(doneButton);
 
                 verticalWrapper2.Children.Add(horizontalWrapper1);
                 verticalWrapper2.Children.Add(horizontalWrapper2);
-                verticalWrapper2.Children.Add(horizontalWrapper3);
+                //verticalWrapper2.Children.Add(horizontalWrapper3);
 
                 horizontalWrapper.Children.Add(avatar);
                 horizontalWrapper.Children.Add(verticalWrapper2);
@@ -198,10 +194,49 @@ namespace IceSocialNet.View
                 lblDescription.Font = Font.OfSize("SemiBold", 20);
 
                 contentWrapper.Children.Add(lblDescription);
+                contentWrapper.Children.Add(lblDescription);
 
+                Button likeButton = new Button
+                {
+                    HorizontalOptions = LayoutOptions.Start,
+                    VerticalOptions = LayoutOptions.StartAndExpand,
+                    Image = "facebook_like.png",
+
+                };
+
+                Button chatButton = new Button
+                {
+                    HorizontalOptions = LayoutOptions.Start,
+                    VerticalOptions = LayoutOptions.StartAndExpand,
+                    Image = "btnChat.png",
+                    IsVisible = false,                    
+                };
+
+
+                likeButton.Clicked += (object sender, EventArgs e) => {
+
+                    if (likeButton.Image == "facebook_like.png") {
+                        likeButton.Image = "facebook_liked.png";
+                        chatButton.IsVisible = true;
+                    }
+                    else
+                    {
+                        likeButton.Image = "facebook_like.png";
+                        chatButton.IsVisible = false;
+                    }
+                };
+
+                chatButton.Clicked += (object sender, EventArgs e) => {
+
+                    Navigation.PushAsync(new ChatPage());
+                };
+
+                buttonsWrapper.Children.Add(likeButton);
+                buttonsWrapper.Children.Add(chatButton);
 
                 layout.Children.Add(horizontalWrapper);
                 layout.Children.Add(contentWrapper);
+                layout.Children.Add(buttonsWrapper);
                 layout.BackgroundColor = Color.White;
                 layout.HorizontalOptions = LayoutOptions.FillAndExpand;
 

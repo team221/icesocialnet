@@ -22,9 +22,18 @@
                     Font="Bold"
                     FontSize="26"
                     Clicked="LoginWithFacebook_Clicked"/>
-                <Button Image="facebook.png"  />
-                <Button Image="twitter.jpg"  />
-                <Button Image="linkedin.png"  />
+                <Button Text="Login with Twitter"
+                    TextColor="White"
+                    BackgroundColor="#01579B"
+                    Font="Bold"
+                    FontSize="26"
+                    Clicked="LoginWithFacebook_Clicked"/>
+                <Button Text="Login with LinkedIn"
+                    TextColor="White"
+                    BackgroundColor="#01579B"
+                    Font="Bold"
+                    FontSize="26"
+                    Clicked="LoginWithFacebook_Clicked"/>
             </StackLayout>
         </StackLayout>
 

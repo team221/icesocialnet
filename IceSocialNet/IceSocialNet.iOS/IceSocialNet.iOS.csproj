@@ -182,7 +182,13 @@
     <BundleResource Include="Resources\twitter.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\facebook_like.jpg" />
+    <BundleResource Include="Resources\facebook_liked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\facebook_like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\btnChat.png" />
   </ItemGroup>
   <Import Project="..\IceSocialNet\IceSocialNet.projitems" Label="Shared" Condition="Exists('..\IceSocialNet\IceSocialNet.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
