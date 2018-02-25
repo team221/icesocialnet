@@ -68,7 +68,10 @@ namespace IceSocialNet.View
             //    return true;
             //}
             //return false;
-            return true;
+            if (account.Username.Equals("admin") && account.Password.Equals("admin"))
+                return true;
+            else
+                return false;
         }
     }
 }
