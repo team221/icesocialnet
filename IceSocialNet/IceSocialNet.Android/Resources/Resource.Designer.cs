@@ -23,8 +23,9 @@ namespace IceSocialNet.Droid
 		{
 			global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 		}
-		
-		public static void UpdateIdValues()
+
+
+        public static void UpdateIdValues()
 		{
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::IceSocialNet.Droid.Resource.Attribute.actionBarSize;
 		}
@@ -2233,11 +2234,14 @@ namespace IceSocialNet.Droid
 			// aapt resource value: 0x7f0200ab
 			public const int mr_ic_play_light = 2130837675;
 			
-			// aapt resource value: 0x7f0200ad
-			public const int notification_template_icon_bg = 2130837677;
-			
 			// aapt resource value: 0x7f0200ac
-			public const int twitter = 2130837676;
+			public const int news = 2130837676;
+			
+			// aapt resource value: 0x7f0200ae
+			public const int notification_template_icon_bg = 2130837678;
+			
+			// aapt resource value: 0x7f0200ad
+			public const int twitter = 2130837677;
 			
 			static Drawable()
 			{

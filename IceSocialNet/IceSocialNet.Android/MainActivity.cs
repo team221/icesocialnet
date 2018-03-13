@@ -22,6 +22,12 @@ namespace IceSocialNet.Droid
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 			LoadApplication (new IceSocialNet.App ());
 		}
-	}
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.option, menu);
+            return true;
+        }
+    }
 }
 
