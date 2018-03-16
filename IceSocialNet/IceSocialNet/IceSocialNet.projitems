@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\CustomCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RestClientAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Activity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\News.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Event.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\FacebookProfile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Group.cs" />

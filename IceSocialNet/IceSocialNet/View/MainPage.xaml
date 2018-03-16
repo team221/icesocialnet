@@ -6,7 +6,10 @@
              Title="Activity">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10" Padding="0" BackgroundColor="LightGray" x:Name="listItems">
+            <StackLayout Spacing="10" Padding="0" x:Name="listItems">
+                <StackLayout.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color" Android="#fcfcfc" WinPhone="#fcfcfc" iOS="#fcfcfc"></OnPlatform>
+                </StackLayout.BackgroundColor>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

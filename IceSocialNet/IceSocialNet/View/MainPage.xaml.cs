@@ -111,7 +111,78 @@ namespace IceSocialNet.View
                 }
             };
 
+            Event even1 = new Event()
+            {
+                Guid = 12,
+                Title = "IOT event",
+                Description = "Only for Blockchain event",
+                Icon = "event.png",
+                Time_Create = "8 minutes 13 seconds ago",
+                Lat = 12.02,
+                Lng = 12.02,
+                Owner = new Owner()
+                {
+                    guid = 38,
+                    Name = "Ice Admin",
+                    Username = "admin",
+                    Avatar_Url = "http://localhost/elgg/_graphics/icons/user/defaultsmall.gif"
+                }
+            };
+
             groups.Add(even);
+            groups.Add(even1);
+
+            News news1 = new News()
+            {
+                Guid = 12,
+                Title = "IOT news",
+                Description = "Only for IoT news",
+                Icon = "news.png",
+                Time_Create = "8 minutes 13 seconds ago",
+                Owner = new Owner()
+                {
+                    guid = 38,
+                    Name = "Ice Admin",
+                    Username = "admin",
+                    Avatar_Url = "http://localhost/elgg/_graphics/icons/user/defaultsmall.gif"
+                }
+            };
+
+            News news2 = new News()
+            {
+                Guid = 12,
+                Title = "Blockchain news",
+                Description = "Only for blockchain news",
+                Icon = "news.png",
+                Time_Create = "8 minutes 13 seconds ago",
+                Owner = new Owner()
+                {
+                    guid = 38,
+                    Name = "Ice Admin",
+                    Username = "admin",
+                    Avatar_Url = "http://localhost/elgg/_graphics/icons/user/defaultsmall.gif"
+                }
+            };
+
+            News news3 = new News()
+            {
+                Guid = 12,
+                Title = "Bitcoin news",
+                Description = "Only for Bitcoin news",
+                Icon = "news.png",
+                Time_Create = "12 days ago",
+                Owner = new Owner()
+                {
+                    guid = 38,
+                    Name = "Ice Admin",
+                    Username = "admin",
+                    Avatar_Url = "http://localhost/elgg/_graphics/icons/user/defaultsmall.gif"
+                }
+            };
+
+            groups.Add(news1);
+            groups.Add(news2);
+            groups.Add(news3);
 
             DrawActivityUI(groups);
         }
@@ -123,13 +194,20 @@ namespace IceSocialNet.View
             {
                 Group group = null;
                 Event evt = null;
+                News news = null;
                 try
                 {
                     group = (Group)act;
                 }
                 catch (Exception ex)
                 {
-                    evt = (Event)act;
+                    try
+                    {
+                        evt = (Event)act;
+                    }catch(Exception exc)
+                    {
+                        news = (News)act;
+                    }
                 }
                 var layout = new StackLayout();
                 layout.Orientation = StackOrientation.Vertical;
@@ -141,12 +219,12 @@ namespace IceSocialNet.View
                 buttonsWrapper.Orientation = StackOrientation.Horizontal;
 
                 var contentWrapper = new StackLayout();
-                contentWrapper.Orientation = StackOrientation.Vertical;
-
+                contentWrapper.Orientation = StackOrientation.Vertical;               
 
                 var avatar = new Image();
                 //avatar.SetBinding(Image.SourceProperty, act.Owner.Avatar_Url);
-                avatar.Source = group != null ? ImageSource.FromFile("group.png") : ImageSource.FromFile("event.png");//.FromUri(new Uri(act.Owner.Avatar_Url));
+                avatar.Source = group != null ? ImageSource.FromFile("group.png") 
+                    : (evt != null ? ImageSource.FromFile("event.png") : ImageSource.FromFile("news.png"));//.FromUri(new Uri(act.Owner.Avatar_Url));
 
                 StackLayout verticalWrapper2 = new StackLayout();
                 verticalWrapper2.Orientation = StackOrientation.Vertical;
@@ -158,7 +236,7 @@ namespace IceSocialNet.View
 
                 Label lblName = new Label();
                 //lblName.SetBinding(Label.TextProperty, act.Owner.Name);
-                lblName.Text = group != null?group.Owner.Name: evt.Owner.Name;
+                lblName.Text = group != null ? group.Owner.Name : (evt != null ? evt.Owner.Name : news.Owner.Name);
                 lblName.TextColor = Color.Black;
                 lblName.Font = Font.OfSize("SemiBold", 20);
 
@@ -173,7 +251,7 @@ namespace IceSocialNet.View
 
                 Label lblTime = new Label();
                 //lblTime.SetBinding(Label.TextProperty, act.Time_Created);
-                lblTime.Text = group != null ? group.Time_Create: evt.Time_Create;
+                lblTime.Text = group != null ? group.Time_Create : (evt != null ? evt.Time_Create : news.Time_Create);
                 horizontalWrapper2.Children.Add(lblTime);
 
                 StackLayout horizontalWrapper3 = new StackLayout();
@@ -190,7 +268,7 @@ namespace IceSocialNet.View
 
                 Label lblDescription = new Label();
                 //lblDescription.SetBinding(Label.TextProperty, act.Description);
-                lblDescription.Text = group != null ? group.Description: evt.Description;
+                lblDescription.Text = group != null ? group.Description : (evt != null ? evt.Description : news.Description);
                 lblDescription.Font = Font.OfSize("SemiBold", 20);
 
                 contentWrapper.Children.Add(lblDescription);

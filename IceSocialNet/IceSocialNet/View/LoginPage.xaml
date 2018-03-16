@@ -15,24 +15,24 @@
             <Button Text="Login" Clicked="OnLoginButtonClicked" />
             <Label x:Name="messageLabel" />
             <Label x:Name="seperator" Text="Or login with" XAlign="Center"/>
-            <StackLayout HorizontalOptions="Center" x:Name="groupButtons" Orientation="Horizontal">
+            <StackLayout VerticalOptions="StartAndExpand" x:Name="groupButtons" Orientation="Vertical">
                 <Button Text="Login with Facebook"
                     TextColor="White"
                     BackgroundColor="#01579B"
                     Font="Bold"
-                    FontSize="26"
+                    FontSize="20"
                     Clicked="LoginWithFacebook_Clicked"/>
                 <Button Text="Login with Twitter"
                     TextColor="White"
                     BackgroundColor="#01579B"
                     Font="Bold"
-                    FontSize="26"
+                    FontSize="20"
                     Clicked="LoginWithFacebook_Clicked"/>
                 <Button Text="Login with LinkedIn"
                     TextColor="White"
                     BackgroundColor="#01579B"
                     Font="Bold"
-                    FontSize="26"
+                    FontSize="20"
                     Clicked="LoginWithFacebook_Clicked"/>
             </StackLayout>
         </StackLayout>

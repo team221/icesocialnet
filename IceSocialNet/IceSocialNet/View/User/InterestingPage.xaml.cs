@@ -31,8 +31,11 @@ namespace IceSocialNet.View.User
 
         ObservableCollection<ListViewModel> ListItems { get; set; } = new ObservableCollection<ListViewModel> {
             new ListViewModel{Text = "IoT"},
+            new ListViewModel{Text = "#IoT"},
             new ListViewModel{Text = "Blockchain"},
+            new ListViewModel{Text = "#Blockchain"},
             new ListViewModel{Text = "Robotics"},
+            new ListViewModel{Text = "#Robotics"},
             new ListViewModel{Text = "OCR (Optical Character Recognize)"},
         };
 
